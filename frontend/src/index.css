@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;600&family=Marck+Script&family=DM+Sans:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 84% 60%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 100%;
+    --radius: 0.5rem;
+    --nav-button: 0 0% 12%;
+    --hero-bg: 0 0% 4%;
+
+    --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'HelveticaNowDisplayW01-Rg', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    overflow-x: hidden;
+    background-color: hsl(var(--hero-bg));
+    color: hsl(var(--foreground));
+  }
+}
+
+
+/* Custom CSS classes for typography */
+.font-italiana {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-manrope {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-dmsans {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-hero-heading {
+  font-family: var(--font-heading);
+}
+
+.font-hero-body {
+  font-family: var(--font-body);
+}
+
+/* Custom Webkit Scrollbars (Minimal, Sleek) */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Glitch animation helpers */
+@keyframes glitch-anim {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+  }
+  40% {
+    clip-path: inset(15% 0 80% 0);
+  }
+  60% {
+    clip-path: inset(80% 0 5% 0);
+  }
+  80% {
+    clip-path: inset(3% 0 92% 0);
+  }
+  100% {
+    clip-path: inset(40% 0 61% 0);
+  }
+}
+
+.animate-glitch {
+  animation: glitch-anim 1s linear infinite alternate-reverse;
+}
+
+/* ==========================================
+   ROCKET CTA / VELORAH PREVIEW UTILITIES
+   ========================================== */
+
+/* Liquid Glass — frosted translucent surface */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Fade-rise entrance animations */
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-rise         { animation: fade-rise .8s ease-out both; }
+.animate-fade-rise-delay   { animation: fade-rise .8s ease-out .25s both; }
+.animate-fade-rise-delay-2 { animation: fade-rise .8s ease-out .5s both; }
+
+/* Hide scrollbars (chat panel scroll area) */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { scrollbar-width: none; }
+
+/* Instrument Serif font helper */
+.font-instrument-serif {
+  font-family: 'Instrument Serif', serif;
+}
+
+/* Hide all Spline Viewer branding, zoom reticle +, and UI controls */
+spline-viewer::part(logo),
+spline-viewer::part(help),
+spline-viewer::part(socials),
+spline-viewer::part(play-button),
+spline-viewer::part(info),
+spline-viewer::part(watermark),
+spline-viewer::part(control) {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
