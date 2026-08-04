@@ -78,13 +78,6 @@ export default function GlobalHero() {
   // Prevent seek flooding by queueing updates in onSeeked
   const handleSeeked = () => {
     isSeekingRef.current = false;
-    const video = videoRef.current;
-    if (!video || !video.duration) return;
-
-    if (Math.abs(video.currentTime - targetTimeRef.current) > 0.02) {
-      isSeekingRef.current = true;
-      video.currentTime = targetTimeRef.current;
-    }
   };
 
   // Horizontal mouse movement scrubs the video timeline (throttled with rAF)
@@ -93,45 +86,42 @@ export default function GlobalHero() {
 
     let animId;
     const video = videoRef.current;
+    let currentLerpTime = video ? video.currentTime : 0;
 
     const handleMouseMove = (e) => {
       if (!video || !video.duration || isNaN(video.duration)) return;
 
-      const currentX = e.clientX;
-      const prevX = prevXRef.current;
-      prevXRef.current = currentX;
-
-      const delta = currentX - prevX;
-      const SENSITIVITY = 0.8;
-      // Convert translation to time offset
-      const timeOffset = (delta / window.innerWidth) * SENSITIVITY * video.duration;
-
-      let targetTime = targetTimeRef.current + timeOffset;
-      // Clamp between 0 and duration
-      targetTime = Math.max(0, Math.min(video.duration, targetTime));
-      targetTimeRef.current = targetTime;
+      // Map absolute cursor position X to the video timeline
+      const ratio = e.clientX / window.innerWidth;
+      targetTimeRef.current = ratio * video.duration;
     };
 
-    const handleMouseEnter = (e) => {
-      prevXRef.current = e.clientX;
-    };
-
-    // Ticker loop to execute at most one seek per screen refresh frame
+    // Ticker loop to smoothly interpolate (LERP) toward the target seek time
     const tick = () => {
-      if (video && !isSeekingRef.current && Math.abs(video.currentTime - targetTimeRef.current) > 0.03) {
-        isSeekingRef.current = true;
-        video.currentTime = targetTimeRef.current;
+      if (video) {
+        // LERP_FACTOR: 0.18 makes the neck turn fast yet incredibly smooth
+        const LERP_FACTOR = 0.18;
+        const diff = targetTimeRef.current - currentLerpTime;
+
+        if (Math.abs(diff) > 0.01) {
+          currentLerpTime += diff * LERP_FACTOR;
+          // Clamp time to video boundaries
+          currentLerpTime = Math.max(0, Math.min(video.duration, currentLerpTime));
+
+          if (!isSeekingRef.current) {
+            isSeekingRef.current = true;
+            video.currentTime = currentLerpTime;
+          }
+        }
       }
       animId = requestAnimationFrame(tick);
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    window.addEventListener('mouseenter', handleMouseEnter);
     animId = requestAnimationFrame(tick);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseenter', handleMouseEnter);
       cancelAnimationFrame(animId);
     };
   }, [isReady, inView]);
