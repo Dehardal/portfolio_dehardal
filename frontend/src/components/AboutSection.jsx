@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import profilePhoto from '../images/IMG_20260307_043624.jpg.jpeg';
 
 /**
  * AboutSection — Modular component representing Deepankar Dayal's bio 
@@ -76,7 +77,7 @@ export default function AboutSection({ isVisible }) {
             className="relative shrink-0 w-[250px] h-[310px] bg-slate-900 overflow-visible rounded-2xl"
           >
             <img 
-              src="/src/images/IMG_20260307_043624.jpg.jpeg" 
+              src={profilePhoto} 
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=compress&cs=tinysrgb&fit=crop&w=600&h=800&q=80";
