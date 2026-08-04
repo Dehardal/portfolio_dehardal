@@ -6,9 +6,9 @@ import {
 } from 'lucide-react';
 
 // Subcomponents and Pages
-import Home from './pages/Home';
-import Blog from './pages/Blog';
-import BlogDetail from './pages/BlogDetail';
+const Home = React.lazy(() => import('./pages/Home'));
+const Blog = React.lazy(() => import('./pages/Blog'));
+const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
 import Footer from './components/Footer';
 
 // Create Global Contexts
@@ -41,19 +41,21 @@ function AppLayout() {
       <main className={`flex-grow z-10 w-full relative ${
         isFullBleed ? 'pt-0' : 'pt-32 pb-16 px-4 md:px-8 max-w-7xl mx-auto'
       }`}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Navigate to="/#about" replace />} />
-          <Route path="/projects" element={<Navigate to="/#projects" replace />} />
-          <Route path="/contact" element={<Navigate to="/#contact" replace />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogDetail />} />
-          
+        <React.Suspense fallback={<div className="min-h-screen bg-[#050507]" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<Navigate to="/#about" replace />} />
+            <Route path="/projects" element={<Navigate to="/#projects" replace />} />
+            <Route path="/contact" element={<Navigate to="/#contact" replace />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogDetail />} />
+            
 
-          
-          {/* Fallback redirect */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+            
+            {/* Fallback redirect */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </React.Suspense>
       </main>
       
       {/* Global Footer */}

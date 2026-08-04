@@ -32,15 +32,33 @@ function useTypewriter(text, speed = 38, startDelay = 600) {
 }
 
 export default function GlobalHero() {
+  const containerRef = useRef(null);
   const videoRef = useRef(null);
   const [isReady, setIsReady] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [inView, setInView] = useState(true);
 
   // Mouse tracking and seek parameters
   const prevXRef = useRef(0);
   const targetTimeRef = useRef(0);
   const isSeekingRef = useRef(false);
+
+  // Intersection Observer to stop expensive video seeking/listeners when scrolled away
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.01 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   // Typewriter parameters
   const heroDescription = "I build high-performance web applications, decentralized blockchain networks, and intelligent automation systems. Now, what are we building?";
@@ -69,10 +87,14 @@ export default function GlobalHero() {
     }
   };
 
-  // Horizontal mouse movement scrubs the video timeline
+  // Horizontal mouse movement scrubs the video timeline (throttled with rAF)
   useEffect(() => {
+    if (!inView || !isReady) return;
+
+    let animId;
+    const video = videoRef.current;
+
     const handleMouseMove = (e) => {
-      const video = videoRef.current;
       if (!video || !video.duration || isNaN(video.duration)) return;
 
       const currentX = e.clientX;
@@ -88,26 +110,31 @@ export default function GlobalHero() {
       // Clamp between 0 and duration
       targetTime = Math.max(0, Math.min(video.duration, targetTime));
       targetTimeRef.current = targetTime;
-
-      // Seek video
-      if (!isSeekingRef.current) {
-        isSeekingRef.current = true;
-        video.currentTime = targetTime;
-      }
     };
 
     const handleMouseEnter = (e) => {
       prevXRef.current = e.clientX;
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    // Ticker loop to execute at most one seek per screen refresh frame
+    const tick = () => {
+      if (video && !isSeekingRef.current && Math.abs(video.currentTime - targetTimeRef.current) > 0.03) {
+        isSeekingRef.current = true;
+        video.currentTime = targetTimeRef.current;
+      }
+      animId = requestAnimationFrame(tick);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('mouseenter', handleMouseEnter);
+    animId = requestAnimationFrame(tick);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseenter', handleMouseEnter);
+      cancelAnimationFrame(animId);
     };
-  }, [isReady]);
+  }, [isReady, inView]);
 
   // Copy email helper
   const handleCopyEmail = (e) => {
@@ -118,7 +145,7 @@ export default function GlobalHero() {
   };
 
   return (
-    <section className="font-hero-body relative min-h-screen flex flex-col justify-end md:justify-center px-5 sm:px-8 md:px-10 pb-12 md:pb-0 overflow-hidden bg-transparent select-none">
+    <section ref={containerRef} className="font-hero-body relative min-h-screen flex flex-col justify-end md:justify-center px-5 sm:px-8 md:px-10 pb-12 md:pb-0 overflow-hidden bg-transparent select-none">
       
       {/* ── Absolute Scrub-Controlled Background Video ── */}
       <video
