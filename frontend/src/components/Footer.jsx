@@ -80,7 +80,7 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="w-full mt-auto z-10 font-sans">
+    <footer id="contact" className="w-full mt-auto z-10 font-hero-body">
       
       {/* ── Outer dark background ── */}
       <div className="bg-[#030305] pt-8 sm:pt-12 px-4 sm:px-6">
@@ -106,7 +106,7 @@ export default function Footer() {
 
               {/* ── Column 1: Tagline + Copyright ── */}
               <div className="md:col-span-3 space-y-5">
-                <h3 className="text-white text-base sm:text-lg font-semibold leading-snug tracking-tight">
+                <h3 className="text-white text-base sm:text-lg font-hero-heading font-semibold leading-snug tracking-tight">
                   Engineering digital products,<br />
                   One commit at a time.
                 </h3>
@@ -192,7 +192,7 @@ export default function Footer() {
                   <button
                     type="submit"
                     disabled={contactLoading}
-                    className="px-5 py-2 rounded-lg bg-white hover:bg-white/90 text-black font-semibold text-[11px] tracking-wider uppercase transition-all duration-300 disabled:opacity-50 cursor-pointer"
+                    className="px-5 py-2 rounded-lg bg-white hover:bg-white/90 text-black font-hero-heading font-semibold text-[11px] tracking-wider uppercase transition-all duration-300 disabled:opacity-50 cursor-pointer"
                   >
                     {contactLoading ? 'Sending...' : 'Send'}
                   </button>
@@ -231,7 +231,7 @@ export default function Footer() {
           {/* ── Giant Brand Name ── */}
           <div className="relative overflow-hidden select-none pointer-events-none" style={{ height: 'clamp(80px, 14vw, 180px)' }}>
             <div 
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap font-black uppercase text-white/[0.04] leading-none"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap font-hero-heading font-black uppercase text-white/[0.04] leading-none"
               style={{ 
                 fontSize: 'clamp(120px, 18vw, 280px)',
                 letterSpacing: '-0.02em',
