@@ -92,7 +92,7 @@ export default function GlobalNavbar() {
           {/* Desktop CTA (right, hidden below md) */}
           <div className="hidden md:flex items-center gap-6">
             <a
-              href="/resume.pdf"
+              href="/resume (2).pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={`flex items-center gap-2 text-[18px] transition-all duration-300 hover:opacity-60 ${textColor}`}
@@ -113,7 +113,7 @@ export default function GlobalNavbar() {
           {/* Mobile hamburger (visible below md) */}
           <div className="flex md:hidden items-center gap-4">
             <a
-              href="/resume.pdf"
+              href="/resume (2).pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={`flex items-center transition-all duration-300 hover:opacity-60 ${textColor} pointer-events-auto`}
@@ -156,7 +156,7 @@ export default function GlobalNavbar() {
           })}
           
           <a
-            href="/resume.pdf"
+            href="/resume (2).pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 text-[32px] font-medium text-white hover:opacity-60 transition-opacity"
