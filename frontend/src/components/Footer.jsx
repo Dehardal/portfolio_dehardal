@@ -90,16 +90,16 @@ export default function Footer() {
       >
         <div className="flex flex-col xl:flex-row gap-8 items-stretch w-full relative">
           
-          {/* LEFT CARD: Dark Mesh Gradient Panel */}
+          {/* LEFT CARD: Premium Glass Panel */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isContactInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: customEase }}
-            className="flex-1 rounded-[32px] p-8 md:p-12 bg-gradient-to-b from-[#111827] to-[#030712] border border-white/5 flex flex-col justify-between min-h-[480px] relative overflow-hidden group shadow-2xl"
+            className="flex-1 rounded-[32px] p-8 md:p-12 bg-white/[0.02] border border-white/10 flex flex-col justify-between min-h-[480px] relative overflow-hidden group shadow-2xl hover:bg-white/[0.03] transition-colors duration-500"
           >
-            {/* Subtle Glowing mesh background */}
-            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-indigo-500/15 transition-all duration-700" />
-            <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-650/5 rounded-full blur-[120px] pointer-events-none" />
+            {/* Subtle Glowing monochrome mesh background */}
+            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-white/[0.03] rounded-full blur-[100px] pointer-events-none group-hover:bg-white/[0.05] transition-all duration-700" />
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/[0.01] rounded-full blur-[120px] pointer-events-none" />
 
             <div className="relative z-10 space-y-6">
               {/* Top Brand Logo matching navbar */}
@@ -180,26 +180,21 @@ export default function Footer() {
                 <h4 className="font-sora text-white/50 text-lg uppercase tracking-wider leading-none">
                   Navigation
                 </h4>
-                <ul className="space-y-3 font-manrope text-sm font-light text-white/80">
+                <ul className="space-y-3 font-manrope text-sm font-light">
                   <li>
-                    <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-red-500 transition-colors">
+                    <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-white/60 hover:text-white transition-colors">
                       Home
                     </a>
                   </li>
                   <li>
-                    <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-red-500 transition-colors">
+                    <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-white/60 hover:text-white transition-colors">
                       About
                     </a>
                   </li>
                   <li>
-                    <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-red-500 transition-colors">
+                    <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-white/60 hover:text-white transition-colors">
                       Projects
                     </a>
-                  </li>
-                  <li>
-                    <Link to="/blog" className="hover:text-red-500 transition-colors">
-                      Blog
-                    </Link>
                   </li>
                 </ul>
               </div>
@@ -217,7 +212,7 @@ export default function Footer() {
                       value={contactData.name}
                       onChange={handleContactChange}
                       placeholder="Your Name"
-                      className="w-full bg-white/[0.03] border border-white/10 focus:border-white/30 rounded-xl px-4 py-2.5 text-white placeholder:text-white/35 outline-none transition-all"
+                      className="w-full bg-white/[0.03] border border-white/10 focus:border-white/40 focus:ring-1 focus:ring-white/20 rounded-xl px-4 py-2.5 text-white placeholder:text-white/35 outline-none transition-all duration-300"
                       required
                     />
                   </div>
@@ -228,7 +223,7 @@ export default function Footer() {
                       value={contactData.email}
                       onChange={handleContactChange}
                       placeholder="Email Address"
-                      className="w-full bg-white/[0.03] border border-white/10 focus:border-white/30 rounded-xl px-4 py-2.5 text-white placeholder:text-white/35 outline-none transition-all"
+                      className="w-full bg-white/[0.03] border border-white/10 focus:border-white/40 focus:ring-1 focus:ring-white/20 rounded-xl px-4 py-2.5 text-white placeholder:text-white/35 outline-none transition-all duration-300"
                       required
                     />
                   </div>
@@ -239,7 +234,7 @@ export default function Footer() {
                       onChange={handleContactChange}
                       placeholder="How can I help you?"
                       rows={3}
-                      className="w-full bg-white/[0.03] border border-white/10 focus:border-white/30 rounded-xl px-4 py-2.5 text-white placeholder:text-white/35 outline-none transition-all resize-none"
+                      className="w-full bg-white/[0.03] border border-white/10 focus:border-white/40 focus:ring-1 focus:ring-white/20 rounded-xl px-4 py-2.5 text-white placeholder:text-white/35 outline-none transition-all resize-none duration-300"
                       required
                     />
                   </div>
@@ -253,7 +248,7 @@ export default function Footer() {
                   <button
                     type="submit"
                     disabled={contactLoading}
-                    className="w-full px-6 py-2.5 rounded-xl bg-white hover:bg-white/90 text-black font-semibold text-xs transition-all disabled:opacity-50 flex items-center justify-center cursor-pointer min-h-[36px]"
+                    className="w-full px-6 py-2.5 rounded-xl bg-white hover:bg-white/90 text-black font-semibold text-xs transition-all disabled:opacity-50 flex items-center justify-center cursor-pointer min-h-[36px] active:scale-[0.98]"
                   >
                     {contactLoading ? 'Sending...' : 'Send Message'}
                   </button>
@@ -273,6 +268,21 @@ export default function Footer() {
           </motion.div>
 
         </div>
+
+        {/* Sleek Monospace Copyright Brand Bar */}
+        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[10px] text-white/30 font-mono tracking-wider gap-4">
+          <div className="flex items-center gap-4">
+            <span>© 2026 DEEPANKAR DAYAL.</span>
+            <span className="hidden sm:inline text-white/10">|</span>
+            <span>ALL RIGHTS RESERVED.</span>
+          </div>
+          <div className="flex items-center gap-6">
+            <span>BUILT WITH REACT, VITE & TAILWIND</span>
+            <span className="hidden sm:inline text-white/10">|</span>
+            <span className="text-white/50">V2.4.0</span>
+          </div>
+        </div>
+
       </div>
 
     </footer>
