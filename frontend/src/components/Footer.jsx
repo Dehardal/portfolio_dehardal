@@ -81,198 +81,240 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="w-full mt-auto z-10 bg-transparent relative pt-12 pb-12 lg:pt-20 lg:pb-20">
+    <footer id="contact" className="w-full mt-auto z-10 bg-[#050507] border-t border-white/10 pt-20 pb-12 relative overflow-hidden font-sans">
       
-      {/* 1. Split Contact Cards Container */}
+      {/* ── PART A: CONTACT DIRECTORY ("Say Hello") ── */}
       <div 
         ref={contactRef}
-        className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16"
+        className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16 pb-20"
       >
-        <div className="flex flex-col xl:flex-row gap-8 items-stretch w-full relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* LEFT CARD: Dark Mesh Gradient Panel */}
+          {/* LEFT: Branding Message & Direct Contacts */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={isContactInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: customEase }}
-            className="flex-1 rounded-[32px] p-8 md:p-12 bg-gradient-to-b from-[#111827] to-[#030712] border border-white/5 flex flex-col justify-between min-h-[480px] relative overflow-hidden group shadow-2xl"
+            className="lg:col-span-5 space-y-8 text-left"
           >
-            {/* Subtle Glowing mesh background */}
-            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-indigo-500/15 transition-all duration-700" />
-            <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-650/5 rounded-full blur-[120px] pointer-events-none" />
+            <div className="space-y-4">
+              <span className="text-white/40 text-xs font-mono tracking-widest uppercase block">
+                GET IN TOUCH
+              </span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1] font-sans">
+                Say hello.
+              </h2>
+              <p className="text-white/50 text-sm sm:text-base leading-relaxed font-light max-w-md pt-2">
+                Have a full-stack platform to engineer, a SaaS system to scale, or automated workflows to construct? Let's build it together.
+              </p>
+            </div>
 
-            <div className="relative z-10 space-y-6">
-              {/* Top Brand Logo matching navbar */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center font-bold text-xs shadow-md">
-                  DD
-                </div>
-                <span 
-                  className="text-foreground text-2xl font-normal tracking-normal text-white"
-                  style={{ fontFamily: "'Allura', cursive" }}
+            <div className="space-y-6 pt-4">
+              <div className="space-y-1">
+                <span className="text-white/30 text-xs font-mono block">DIRECT EMAIL</span>
+                <a 
+                  href="mailto:deepankar1562@gmail.com" 
+                  className="text-lg sm:text-xl font-medium text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20"
                 >
-                  Deepankar Dayal
-                </span>
+                  deepankar1562@gmail.com
+                </a>
               </div>
 
-              {/* Mindset Quote Headline callout */}
-              <h3 className="font-italiana font-light text-[clamp(0.9rem,1.5vw,1.15rem)] leading-relaxed text-white/80 pt-4 max-w-xl italic text-left">
-                "Simplicity is the ultimate sophistication. When we build digital systems, we do not just write code—we design workflows to turn operational chaos into streamlined automation. We design for absolute scale, and we engineer for lasting impact."
-              </h3>
-
-              {/* Hand-written Signature Canvas (Above the line) */}
-              <div className="w-full flex justify-end select-none pointer-events-auto mt-4 -mr-2.5 -mb-6">
-                <div className="w-48 h-16 relative">
-                  <SignatureCanvas />
-                </div>
+              <div className="space-y-1">
+                <span className="text-white/30 text-xs font-mono block">LOCATION</span>
+                <p className="text-base text-white/75 font-light">
+                  Noida, India &bull; GMT +5:30
+                </p>
               </div>
             </div>
 
-            {/* Bottom Row: Cursive + Socials */}
-            <div className="relative z-10 pt-12 flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-t border-white/5 mt-auto">
-              <span className="font-sora text-2xl font-normal text-white/95 leading-none">
-                Stay in touch!
-              </span>
-
-              {/* Social row */}
-              <div className="flex items-center gap-3">
-                <a 
-                  href="mailto:deepankar1562@gmail.com" 
-                  className="w-11 h-11 rounded-xl bg-white/5 hover:bg-white/10 text-white/80 hover:text-white flex items-center justify-center border border-white/10 transition-all cursor-pointer"
-                  title="Send Email"
-                >
-                  <Mail size={16} />
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/deepankar-dayal-4516291b8/" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="w-11 h-11 rounded-xl bg-white/5 hover:bg-white/10 text-white/80 hover:text-white flex items-center justify-center border border-white/10 transition-all cursor-pointer"
-                  title="LinkedIn"
-                >
-                  <Linkedin size={16} />
-                </a>
-                <a 
-                  href="https://github.com/Dehardal" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="w-11 h-11 rounded-xl bg-white/5 hover:bg-white/10 text-white/80 hover:text-white flex items-center justify-center border border-white/10 transition-all cursor-pointer"
-                  title="GitHub"
-                >
-                  <Github size={16} />
-                </a>
-              </div>
+            {/* Social Circle Links */}
+            <div className="flex items-center gap-3 pt-4">
+              <a 
+                href="mailto:deepankar1562@gmail.com" 
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer"
+                title="Send Email"
+              >
+                <Mail size={15} />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/deepankar-dayal-4516291b8/" 
+                target="_blank" 
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer"
+                title="LinkedIn"
+              >
+                <Linkedin size={15} />
+              </a>
+              <a 
+                href="https://github.com/Dehardal" 
+                target="_blank" 
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer"
+                title="GitHub"
+              >
+                <Github size={15} />
+              </a>
             </div>
           </motion.div>
 
-          {/* RIGHT CARD: Sleek Glass Panel */}
+          {/* RIGHT: Minimalist Border-Line Message Form */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={isContactInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
-            className="flex-[1.2] rounded-[32px] p-8 md:p-12 bg-white/[0.01] border border-white/10 flex flex-col justify-between min-h-[480px] relative shadow-lg"
+            className="lg:col-span-7 w-full text-left"
           >
-            {/* Links columns and newsletter subscription */}
-            <div className="grid sm:grid-cols-10 gap-8 pt-4">
-              
-              {/* Column 1: Navigation (30% width) */}
-              <div className="sm:col-span-3 space-y-4 text-left">
-                <h4 className="font-sora text-white/50 text-lg uppercase tracking-wider leading-none">
-                  Navigation
-                </h4>
-                <ul className="space-y-3 font-manrope text-sm font-light text-white/80">
-                  <li>
-                    <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-red-500 transition-colors">
-                      Home
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-red-500 transition-colors">
-                      About
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-red-500 transition-colors">
-                      Projects
-                    </a>
-                  </li>
-                  <li>
-                    <Link to="/blog" className="hover:text-red-500 transition-colors">
-                      Blog
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Column 2: Sleek Contact Us Form (70% width) */}
-              <div className="sm:col-span-7 space-y-4 text-left">
-                <h4 className="font-sora text-white/50 text-lg uppercase tracking-wider leading-none">
-                  Send a Message
-                </h4>
-                <form onSubmit={handleContactSubmit} className="space-y-3 font-manrope text-xs">
-                  <div>
-                    <input
-                      type="text"
-                      name="name"
-                      value={contactData.name}
-                      onChange={handleContactChange}
-                      placeholder="Your Name"
-                      className="w-full bg-white/[0.03] border border-white/10 focus:border-white/30 rounded-xl px-4 py-2.5 text-white placeholder:text-white/35 outline-none transition-all"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      name="email"
-                      value={contactData.email}
-                      onChange={handleContactChange}
-                      placeholder="Email Address"
-                      className="w-full bg-white/[0.03] border border-white/10 focus:border-white/30 rounded-xl px-4 py-2.5 text-white placeholder:text-white/35 outline-none transition-all"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <textarea
-                      name="message"
-                      value={contactData.message}
-                      onChange={handleContactChange}
-                      placeholder="How can I help you?"
-                      rows={3}
-                      className="w-full bg-white/[0.03] border border-white/10 focus:border-white/30 rounded-xl px-4 py-2.5 text-white placeholder:text-white/35 outline-none transition-all resize-none"
-                      required
-                    />
-                  </div>
-                  
-                  {contactStatus && (
-                    <p className={`text-[10px] ${contactStatus.success ? 'text-emerald-400' : 'text-rose-400'}`}>
-                      {contactStatus.message}
-                    </p>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={contactLoading}
-                    className="w-full px-6 py-2.5 rounded-xl bg-white hover:bg-white/90 text-black font-semibold text-xs transition-all disabled:opacity-50 flex items-center justify-center cursor-pointer min-h-[36px]"
-                  >
-                    {contactLoading ? 'Sending...' : 'Send Message'}
-                  </button>
-                </form>
-
-                {/* Callout text below form (right-aligned) */}
-                <div className="space-y-1.5 pt-4 text-right">
-                  <span className="text-[10px] tracking-widest text-[#6e6e6e] uppercase font-semibold block">
-                    AI & TECH MOVES FAST.
-                  </span>
-                  <h4 className="font-italiana font-light text-xl text-white">
-                    Stay ahead with Deepankar Dayal.
-                  </h4>
+            <form onSubmit={handleContactSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="name"
+                    value={contactData.name}
+                    onChange={handleContactChange}
+                    placeholder="Your Name"
+                    className="w-full bg-transparent border-b border-white/15 focus:border-white py-3 text-white placeholder:text-white/30 text-sm outline-none transition-colors duration-300"
+                    required
+                  />
+                </div>
+                <div className="relative">
+                  <input
+                    type="email"
+                    name="email"
+                    value={contactData.email}
+                    onChange={handleContactChange}
+                    placeholder="Email Address"
+                    className="w-full bg-transparent border-b border-white/15 focus:border-white py-3 text-white placeholder:text-white/30 text-sm outline-none transition-colors duration-300"
+                    required
+                  />
                 </div>
               </div>
-            </div>
+
+              <div className="relative">
+                <textarea
+                  name="message"
+                  value={contactData.message}
+                  onChange={handleContactChange}
+                  placeholder="Tell me about your project or system..."
+                  rows={4}
+                  className="w-full bg-transparent border-b border-white/15 focus:border-white py-3 text-white placeholder:text-white/30 text-sm outline-none transition-colors duration-300 resize-none"
+                  required
+                />
+              </div>
+
+              {contactStatus && (
+                <p className={`text-xs ${contactStatus.success ? 'text-emerald-400' : 'text-rose-400'}`}>
+                  {contactStatus.message}
+                </p>
+              )}
+
+              <div className="pt-4">
+                <button
+                  type="submit"
+                  disabled={contactLoading}
+                  className="px-8 py-3.5 rounded-full bg-white hover:bg-white/90 text-black font-semibold text-xs tracking-wider uppercase transition-all duration-300 disabled:opacity-50 min-h-[42px] cursor-pointer"
+                >
+                  {contactLoading ? 'Sending...' : 'Send Message'}
+                </button>
+              </div>
+            </form>
           </motion.div>
 
         </div>
+      </div>
+
+      {/* ── PART B: STRUCTURED SITEMAP GRID ── */}
+      <div className="border-t border-white/10 pt-16 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-start text-left">
+          
+          {/* Column 1: Brand & Cursive Signature */}
+          <div className="md:col-span-5 space-y-6">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center font-bold text-xs shadow-md">
+                DD
+              </div>
+              <span 
+                className="text-foreground text-2xl font-normal text-white"
+                style={{ fontFamily: "'Allura', cursive" }}
+              >
+                Deepankar Dayal
+              </span>
+            </div>
+            <p className="text-white/40 text-xs font-mono leading-relaxed max-w-xs">
+              Product Thinker & Full Stack Engineer. Engineering workflows to scale silently and design for absolute impact.
+            </p>
+            {/* Signature Placement */}
+            <div className="w-48 h-12 relative opacity-85 select-none pointer-events-none pt-2">
+              <SignatureCanvas />
+            </div>
+          </div>
+
+          {/* Column 2: Structural Sitemap */}
+          <div className="md:col-span-3 space-y-4">
+            <span className="text-white/30 text-[10px] font-mono tracking-widest uppercase block">
+              NAVIGATION
+            </span>
+            <ul className="space-y-3 font-sans text-sm font-light text-white/60">
+              <li>
+                <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
+                  Projects
+                </a>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Availability & Coordinates */}
+          <div className="md:col-span-4 space-y-4">
+            <span className="text-white/30 text-[10px] font-mono tracking-widest uppercase block">
+              AVAILABILITY
+            </span>
+            <div className="space-y-3 font-sans text-sm font-light text-white/60">
+              <div className="flex items-start gap-2.5">
+                {/* Glowing Pulse status dot */}
+                <span className="relative flex h-2 w-2 mt-1.5 flex-shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-450 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <p className="leading-relaxed">
+                  Available for full-time developer roles, case studies, and engineering contracts.
+                </p>
+              </div>
+              <p className="text-xs text-white/30 font-mono pt-2">
+                LATENCY: ~12ms &bull; Noida, IN
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* ── PART C: COPYRIGHT & BACK TO TOP ── */}
+      <div className="pt-12 border-t border-white/5 mt-16 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-white/30">
+        <p>
+          &copy; {new Date().getFullYear()} Deepankar Dayal. All rights reserved.
+        </p>
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
+        >
+          BACK TO TOP &uarr;
+        </button>
       </div>
 
     </footer>
