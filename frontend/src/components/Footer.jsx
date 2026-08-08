@@ -205,67 +205,51 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── PART B: STRUCTURED SITEMAP GRID ── */}
+      {/* ── PART B: BRAND + NAVIGATION (single row) ── */}
       <div className="border-t border-white/10 pt-16 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-start text-left">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 text-left">
           
-          {/* Column 1: Brand & Cursive Signature */}
-          <div className="md:col-span-8 space-y-6">
+          {/* Brand & Signature */}
+          <div className="flex items-center gap-6">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center font-bold text-xs shadow-md">
                 DD
               </div>
               <span 
-                className="text-foreground text-2xl font-normal text-white"
+                className="text-2xl font-normal text-white"
                 style={{ fontFamily: "'Allura', cursive" }}
               >
                 Deepankar Dayal
               </span>
             </div>
-            {/* Signature Placement */}
-            <div className="w-48 h-12 relative opacity-85 select-none pointer-events-none pt-2">
+            <div className="w-36 h-10 relative opacity-85 select-none pointer-events-none hidden sm:block">
               <SignatureCanvas />
             </div>
           </div>
 
-          {/* Column 2: Structural Sitemap & Availability */}
-          <div className="md:col-span-4 space-y-6">
-            <div className="space-y-4">
-              <span className="text-white/30 text-[10px] font-mono tracking-widest uppercase block">
-                NAVIGATION
-              </span>
-              <ul className="space-y-3 font-sans text-sm font-light text-white/60">
-                <li>
-                  <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
-                    Projects
-                  </a>
-                </li>
-                <li>
-                  <Link to="/blog" className="hover:text-white transition-colors">
-                    Blog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="pt-6 border-t border-white/5 flex items-center gap-2.5 text-white/50">
-              <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-              </span>
-              <span className="text-xs font-mono tracking-wide">Available &bull; Noida, IN</span>
-            </div>
-          </div>
+          {/* Navigation Links (inline) */}
+          <ul className="flex items-center gap-6 font-sans text-sm font-light text-white/50">
+            <li>
+              <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
+                Projects
+              </a>
+            </li>
+            <li>
+              <Link to="/blog" className="hover:text-white transition-colors">
+                Blog
+              </Link>
+            </li>
+          </ul>
 
         </div>
       </div>
