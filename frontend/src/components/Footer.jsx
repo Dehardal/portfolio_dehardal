@@ -83,126 +83,93 @@ export default function Footer() {
   return (
     <footer id="contact" className="w-full mt-auto z-10 bg-[#050507] border-t border-white/10 pt-20 pb-12 relative overflow-hidden font-sans">
       
-      {/* ── PART A: CONTACT DIRECTORY ("Say Hello") ── */}
+      {/* ── CONTACT SECTION ── */}
       <div 
         ref={contactRef}
-        className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16 pb-20"
+        className="mx-auto max-w-3xl px-6 sm:px-10 lg:px-16 pb-20"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* LEFT: Branding Message & Direct Contacts */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isContactInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: customEase }}
-            className="lg:col-span-5 space-y-8 text-left"
-          >
-            <div className="space-y-4">
-              <span className="text-white/40 text-xs font-mono tracking-widest uppercase block">
-                GET IN TOUCH
-              </span>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1] font-sans">
-                Say hello.
-              </h2>
-              <p className="text-white/50 text-sm sm:text-base leading-relaxed font-light max-w-md pt-2">
-                Have a full-stack platform to engineer, a SaaS system to scale, or automated workflows to construct? Let's build it together.
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isContactInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: customEase }}
+          className="space-y-10 text-left"
+        >
+          {/* Header */}
+          <div className="space-y-4">
+            <span className="text-white/40 text-xs font-mono tracking-widest uppercase block">
+              GET IN TOUCH
+            </span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1] font-sans">
+              Say hello.
+            </h2>
+            <p className="text-white/50 text-sm sm:text-base leading-relaxed font-light max-w-lg pt-1">
+              Have a full-stack platform to engineer, a SaaS system to scale, or automated workflows to construct? Let's build it together.
+            </p>
+          </div>
+
+          {/* Form */}
+          <form onSubmit={handleContactSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <input
+                type="text"
+                name="name"
+                value={contactData.name}
+                onChange={handleContactChange}
+                placeholder="Your Name"
+                className="w-full bg-transparent border-b border-white/15 focus:border-white py-3 text-white placeholder:text-white/30 text-sm outline-none transition-colors duration-300"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                value={contactData.email}
+                onChange={handleContactChange}
+                placeholder="Email Address"
+                className="w-full bg-transparent border-b border-white/15 focus:border-white py-3 text-white placeholder:text-white/30 text-sm outline-none transition-colors duration-300"
+                required
+              />
+            </div>
+
+            <textarea
+              name="message"
+              value={contactData.message}
+              onChange={handleContactChange}
+              placeholder="Tell me about your project or system..."
+              rows={4}
+              className="w-full bg-transparent border-b border-white/15 focus:border-white py-3 text-white placeholder:text-white/30 text-sm outline-none transition-colors duration-300 resize-none"
+              required
+            />
+
+            {contactStatus && (
+              <p className={`text-xs ${contactStatus.success ? 'text-emerald-400' : 'text-rose-400'}`}>
+                {contactStatus.message}
               </p>
+            )}
+
+            <div className="flex items-center gap-6 pt-2">
+              <button
+                type="submit"
+                disabled={contactLoading}
+                className="px-8 py-3.5 rounded-full bg-white hover:bg-white/90 text-black font-semibold text-xs tracking-wider uppercase transition-all duration-300 disabled:opacity-50 min-h-[42px] cursor-pointer"
+              >
+                {contactLoading ? 'Sending...' : 'Send Message'}
+              </button>
+
+              {/* Social icons inline with button */}
+              <div className="flex items-center gap-2.5">
+                <a href="mailto:deepankar1562@gmail.com" className="w-9 h-9 rounded-full bg-white/5 hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer" title="Email">
+                  <Mail size={14} />
+                </a>
+                <a href="https://www.linkedin.com/in/deepankar-dayal-4516291b8/" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-white/5 hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer" title="LinkedIn">
+                  <Linkedin size={14} />
+                </a>
+                <a href="https://github.com/Dehardal" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-white/5 hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer" title="GitHub">
+                  <Github size={14} />
+                </a>
+              </div>
             </div>
-
-            {/* Social Circle Links */}
-            <div className="flex items-center gap-3 pt-2">
-              <a 
-                href="mailto:deepankar1562@gmail.com" 
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer"
-                title="Send Email"
-              >
-                <Mail size={15} />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/deepankar-dayal-4516291b8/" 
-                target="_blank" 
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer"
-                title="LinkedIn"
-              >
-                <Linkedin size={15} />
-              </a>
-              <a 
-                href="https://github.com/Dehardal" 
-                target="_blank" 
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer"
-                title="GitHub"
-              >
-                <Github size={15} />
-              </a>
-            </div>
-          </motion.div>
-
-          {/* RIGHT: Minimalist Border-Line Message Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isContactInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
-            className="lg:col-span-7 w-full text-left"
-          >
-            <form onSubmit={handleContactSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="relative">
-                  <input
-                    type="text"
-                    name="name"
-                    value={contactData.name}
-                    onChange={handleContactChange}
-                    placeholder="Your Name"
-                    className="w-full bg-transparent border-b border-white/15 focus:border-white py-3 text-white placeholder:text-white/30 text-sm outline-none transition-colors duration-300"
-                    required
-                  />
-                </div>
-                <div className="relative">
-                  <input
-                    type="email"
-                    name="email"
-                    value={contactData.email}
-                    onChange={handleContactChange}
-                    placeholder="Email Address"
-                    className="w-full bg-transparent border-b border-white/15 focus:border-white py-3 text-white placeholder:text-white/30 text-sm outline-none transition-colors duration-300"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="relative">
-                <textarea
-                  name="message"
-                  value={contactData.message}
-                  onChange={handleContactChange}
-                  placeholder="Tell me about your project or system..."
-                  rows={4}
-                  className="w-full bg-transparent border-b border-white/15 focus:border-white py-3 text-white placeholder:text-white/30 text-sm outline-none transition-colors duration-300 resize-none"
-                  required
-                />
-              </div>
-
-              {contactStatus && (
-                <p className={`text-xs ${contactStatus.success ? 'text-emerald-400' : 'text-rose-400'}`}>
-                  {contactStatus.message}
-                </p>
-              )}
-
-              <div className="pt-4">
-                <button
-                  type="submit"
-                  disabled={contactLoading}
-                  className="px-8 py-3.5 rounded-full bg-white hover:bg-white/90 text-black font-semibold text-xs tracking-wider uppercase transition-all duration-300 disabled:opacity-50 min-h-[42px] cursor-pointer"
-                >
-                  {contactLoading ? 'Sending...' : 'Send Message'}
-                </button>
-              </div>
-            </form>
-          </motion.div>
-
-        </div>
+          </form>
+        </motion.div>
       </div>
 
       {/* ── PART B: BRAND + NAVIGATION (single row) ── */}
