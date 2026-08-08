@@ -185,13 +185,7 @@ export default function GlobalHero() {
           >
             Explore my projects
           </Link>
-          
-          <Link
-            to="/blog"
-            className="inline-flex items-center justify-center bg-white/5 backdrop-blur-md text-white border border-white/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-white hover:text-black transition-all duration-300"
-          >
-            Read my blog
-          </Link>
+
 
           <Link
             to="/about"
