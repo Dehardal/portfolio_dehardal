@@ -111,10 +111,10 @@ export default function Footer() {
                   One commit at a time.
                 </h3>
                 <div className="space-y-1.5">
-                  <p className="text-white/30 text-[11px] font-mono">
+                  <p className="text-white/30 text-[11px]">
                     &copy; {new Date().getFullYear()} Deepankar Dayal
                   </p>
-                  <p className="text-white/20 text-[10px] font-mono">
+                  <p className="text-white/20 text-[10px]">
                     Designed & Built by Deepankar
                   </p>
                 </div>
@@ -122,7 +122,7 @@ export default function Footer() {
 
               {/* ── Column 2: Navigation ── */}
               <div className="md:col-span-2 space-y-4">
-                <span className="text-white/40 text-[10px] font-mono tracking-[0.2em] uppercase block">
+                <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase block">
                   Navigation
                 </span>
                 <ul className="space-y-2.5 text-sm font-light text-white/55">
@@ -151,7 +151,7 @@ export default function Footer() {
 
               {/* ── Column 3: Contact Form ── */}
               <div className="md:col-span-4 space-y-4">
-                <span className="text-white/40 text-[10px] font-mono tracking-[0.2em] uppercase block">
+                <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase block">
                   Get in Touch
                 </span>
                 <form onSubmit={handleContactSubmit} className="space-y-3">
@@ -201,7 +201,7 @@ export default function Footer() {
 
               {/* ── Column 4: Follow + Socials ── */}
               <div className="md:col-span-3 space-y-4">
-                <span className="text-white/40 text-[10px] font-mono tracking-[0.2em] uppercase block">
+                <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase block">
                   Follow Me
                 </span>
                 <div className="flex items-center gap-2.5">
@@ -219,7 +219,7 @@ export default function Footer() {
                 {/* Back to Top */}
                 <button 
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className="text-white/30 hover:text-white text-[10px] font-mono tracking-wider uppercase transition-colors duration-200 cursor-pointer mt-2 flex items-center gap-1.5"
+                  className="text-white/30 hover:text-white text-[10px] tracking-wider uppercase transition-colors duration-200 cursor-pointer mt-2 flex items-center gap-1.5"
                 >
                   Back to top <span className="text-sm">&uarr;</span>
                 </button>
