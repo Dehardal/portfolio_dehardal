@@ -86,13 +86,13 @@ export default function Footer() {
       {/* ── CONTACT SECTION ── */}
       <div 
         ref={contactRef}
-        className="mx-auto max-w-3xl px-6 sm:px-10 lg:px-16 pb-20"
+        className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16 pb-12"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isContactInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: customEase }}
-          className="space-y-10 text-left"
+          className="space-y-10 text-left max-w-3xl"
         >
           {/* Header */}
           <div className="space-y-4">
@@ -170,31 +170,34 @@ export default function Footer() {
             </div>
           </form>
         </motion.div>
-      </div>
 
-      {/* ── BOTTOM BAR: BRAND + NAV + COPYRIGHT ── */}
-      <div className="border-t border-white/10 pt-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 space-y-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        {/* ── BOTTOM ROW: Brand (left) + Nav (right) ── */}
+        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           
-          {/* Brand & Signature */}
-          <div className="flex items-center gap-5">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center font-bold text-xs shadow-md">
-                DD
+          {/* Left: Brand + Signature + Copyright */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-5">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center font-bold text-xs shadow-md">
+                  DD
+                </div>
+                <span 
+                  className="text-2xl font-normal text-white"
+                  style={{ fontFamily: "'Allura', cursive" }}
+                >
+                  Deepankar Dayal
+                </span>
               </div>
-              <span 
-                className="text-2xl font-normal text-white"
-                style={{ fontFamily: "'Allura', cursive" }}
-              >
-                Deepankar Dayal
-              </span>
+              <div className="w-36 h-10 relative opacity-85 select-none pointer-events-none hidden sm:block">
+                <SignatureCanvas />
+              </div>
             </div>
-            <div className="w-36 h-10 relative opacity-85 select-none pointer-events-none hidden sm:block">
-              <SignatureCanvas />
-            </div>
+            <p className="text-[11px] font-mono text-white/25">
+              &copy; {new Date().getFullYear()} Deepankar Dayal. All rights reserved.
+            </p>
           </div>
 
-          {/* Navigation + Back to Top */}
+          {/* Right: Navigation + Back to Top */}
           <div className="flex items-center gap-6 text-sm font-light text-white/50">
             <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">Home</a>
             <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">About</a>
@@ -204,11 +207,6 @@ export default function Footer() {
           </div>
 
         </div>
-
-        {/* Copyright */}
-        <p className="text-[11px] font-mono text-white/25">
-          &copy; {new Date().getFullYear()} Deepankar Dayal. All rights reserved.
-        </p>
       </div>
 
     </footer>
