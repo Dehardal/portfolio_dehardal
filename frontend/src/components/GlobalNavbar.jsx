@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Terminal, Briefcase, User } from 'lucide-react';
+import { Terminal, Briefcase, User, FileText } from 'lucide-react';
 
 export default function GlobalNavbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -91,7 +91,17 @@ export default function GlobalNavbar() {
 
           {/* Desktop CTA (right, hidden below md) */}
           <div className="hidden md:flex items-center gap-6">
-             <a
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-2 text-[18px] transition-all duration-300 hover:opacity-60 ${textColor}`}
+              title="View Resume"
+            >
+              <FileText size={20} />
+              <span className="text-[16px]">Resume</span>
+            </a>
+            <a
               href="#contact"
               onClick={(e) => handleLinkClick(e, '#contact')}
               className={`text-[23px] underline underline-offset-2 transition-all duration-300 hover:opacity-60 ${textColor}`}
@@ -101,15 +111,26 @@ export default function GlobalNavbar() {
           </div>
 
           {/* Mobile hamburger (visible below md) */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex md:hidden flex-col justify-center items-center gap-[5px] w-10 h-10 rounded-lg focus:outline-none pointer-events-auto z-50 relative"
-            aria-label="Toggle navigation menu"
-          >
-            <span className={`w-6 h-[2px] transform transition-all duration-300 bg-white ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-            <span className={`w-6 h-[2px] transition-all duration-300 bg-white ${isOpen ? 'opacity-0' : 'opacity-100'}`} />
-            <span className={`w-6 h-[2px] transform transition-all duration-300 bg-white ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
-          </button>
+          <div className="flex md:hidden items-center gap-4">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center transition-all duration-300 hover:opacity-60 ${textColor} pointer-events-auto`}
+              title="View Resume"
+            >
+              <FileText size={22} />
+            </a>
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex flex-col justify-center items-center gap-[5px] w-10 h-10 rounded-lg focus:outline-none pointer-events-auto z-50 relative"
+              aria-label="Toggle navigation menu"
+            >
+              <span className={`w-6 h-[2px] transform transition-all duration-300 bg-white ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+              <span className={`w-6 h-[2px] transition-all duration-300 bg-white ${isOpen ? 'opacity-0' : 'opacity-100'}`} />
+              <span className={`w-6 h-[2px] transform transition-all duration-300 bg-white ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -134,6 +155,16 @@ export default function GlobalNavbar() {
             );
           })}
           
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 text-[32px] font-medium text-white hover:opacity-60 transition-opacity"
+          >
+            <FileText size={32} />
+            <span>Resume</span>
+          </a>
+
           <a
             href="#contact"
             onClick={(e) => handleLinkClick(e, '#contact')}
