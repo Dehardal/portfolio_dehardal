@@ -172,12 +172,12 @@ export default function Footer() {
         </motion.div>
       </div>
 
-      {/* ── PART B: BRAND + NAVIGATION (single row) ── */}
-      <div className="border-t border-white/10 pt-16 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 text-left">
+      {/* ── BOTTOM BAR: BRAND + NAV + COPYRIGHT ── */}
+      <div className="border-t border-white/10 pt-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 space-y-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           
           {/* Brand & Signature */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center font-bold text-xs shadow-md">
                 DD
@@ -194,44 +194,21 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation Links (inline) */}
-          <ul className="flex items-center gap-6 font-sans text-sm font-light text-white/50">
-            <li>
-              <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">
-                Projects
-              </a>
-            </li>
-            <li>
-              <Link to="/blog" className="hover:text-white transition-colors">
-                Blog
-              </Link>
-            </li>
-          </ul>
+          {/* Navigation + Back to Top */}
+          <div className="flex items-center gap-6 text-sm font-light text-white/50">
+            <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">Home</a>
+            <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">About</a>
+            <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors">Projects</a>
+            <Link to="/blog" className="hover:text-white transition-colors">Blog</Link>
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-white transition-colors cursor-pointer">&uarr;</button>
+          </div>
 
         </div>
-      </div>
 
-      {/* ── PART C: COPYRIGHT & BACK TO TOP ── */}
-      <div className="pt-12 border-t border-white/5 mt-16 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-white/30">
-        <p>
+        {/* Copyright */}
+        <p className="text-[11px] font-mono text-white/25">
           &copy; {new Date().getFullYear()} Deepankar Dayal. All rights reserved.
         </p>
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
-        >
-          BACK TO TOP &uarr;
-        </button>
       </div>
 
     </footer>
