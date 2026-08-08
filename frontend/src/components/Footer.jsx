@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
-import { Mail, Linkedin, Github } from 'lucide-react';
+import { Mail, Linkedin, Github, FileText } from 'lucide-react';
 
 /**
  * Footer — Unified Mega Footer Component.
@@ -205,6 +205,9 @@ export default function Footer() {
                   Follow Me
                 </span>
                 <div className="flex items-center gap-2.5">
+                  <a href="/resume (2).pdf" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/[0.06] hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer" title="Resume">
+                    <FileText size={16} />
+                  </a>
                   <a href="mailto:deepankar1562@gmail.com" className="w-10 h-10 rounded-lg bg-white/[0.06] hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer" title="Email">
                     <Mail size={16} />
                   </a>
