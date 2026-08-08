@@ -109,27 +109,8 @@ export default function Footer() {
               </p>
             </div>
 
-            <div className="space-y-6 pt-4">
-              <div className="space-y-1">
-                <span className="text-white/30 text-xs font-mono block">DIRECT EMAIL</span>
-                <a 
-                  href="mailto:deepankar1562@gmail.com" 
-                  className="text-lg sm:text-xl font-medium text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20"
-                >
-                  deepankar1562@gmail.com
-                </a>
-              </div>
-
-              <div className="space-y-1">
-                <span className="text-white/30 text-xs font-mono block">LOCATION</span>
-                <p className="text-base text-white/75 font-light">
-                  Noida, India &bull; GMT +5:30
-                </p>
-              </div>
-            </div>
-
             {/* Social Circle Links */}
-            <div className="flex items-center gap-3 pt-4">
+            <div className="flex items-center gap-3 pt-2">
               <a 
                 href="mailto:deepankar1562@gmail.com" 
                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer"
@@ -241,9 +222,7 @@ export default function Footer() {
                 Deepankar Dayal
               </span>
             </div>
-            <p className="text-white/40 text-xs font-mono leading-relaxed max-w-xs">
-              Product Thinker & Full Stack Engineer. Engineering workflows to scale silently and design for absolute impact.
-            </p>
+
             {/* Signature Placement */}
             <div className="w-48 h-12 relative opacity-85 select-none pointer-events-none pt-2">
               <SignatureCanvas />
