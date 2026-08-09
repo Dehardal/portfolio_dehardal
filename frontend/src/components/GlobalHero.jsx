@@ -3,22 +3,22 @@ import { Link } from 'react-router-dom';
 
 // Custom hook to typewriter reveal characters step-by-step
 function useTypewriter(text, speed = 38, startDelay = 600) {
-  const [displayed, setDisplayed] = useState('');
-  const [done, setDone] = useState(false);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    let index = 0;
+    // Reset index when text changes
+    setIndex(0);
+    
     let timer;
-
     const delayTimer = setTimeout(() => {
       timer = setInterval(() => {
-        if (index < text.length) {
-          setDisplayed((prev) => prev + text.charAt(index));
-          index++;
-        } else {
-          setDone(true);
+        setIndex((prev) => {
+          if (prev < text.length) {
+            return prev + 1;
+          }
           clearInterval(timer);
-        }
+          return prev;
+        });
       }, speed);
     }, startDelay);
 
@@ -28,7 +28,10 @@ function useTypewriter(text, speed = 38, startDelay = 600) {
     };
   }, [text, speed, startDelay]);
 
-  return { displayed, done };
+  return { 
+    displayed: text.slice(0, index), 
+    done: index >= text.length 
+  };
 }
 
 export default function GlobalHero() {
