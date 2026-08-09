@@ -102,67 +102,102 @@ export default function Footer() {
             transition={{ duration: 0.9, ease: customEase }}
             className="px-8 sm:px-12 lg:px-16 pt-14 sm:pt-20 pb-10"
           >
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-6 lg:gap-10 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 lg:gap-16 max-w-7xl mx-auto">
 
-              {/* ── Column 1: Tagline + Copyright ── */}
-              <div className="md:col-span-3 space-y-5">
-                <h3 className="text-white text-base sm:text-lg font-hero-heading font-semibold leading-snug tracking-tight">
-                  Engineering digital products,<br />
-                  One commit at a time.
-                </h3>
-                <div className="space-y-1.5">
+              {/* ── Column 1: Branding & Copyright (Span 4) ── */}
+              <div className="md:col-span-4 flex flex-col justify-between h-full space-y-10 md:space-y-0">
+                <div className="space-y-4">
+                  <h3 className="text-white text-lg sm:text-xl lg:text-2xl font-hero-heading font-medium leading-tight tracking-tight">
+                    Engineering digital products,<br className="hidden lg:block" />
+                    One commit at a time.
+                  </h3>
+                </div>
+                <div className="space-y-2">
                   <p className="text-white/30 text-[11px]">
                     &copy; {new Date().getFullYear()} Deepankar Dayal
                   </p>
-                  <p className="text-white/20 text-[10px]">
+                  <p className="text-white/20 text-[10px] tracking-widest uppercase">
                     Designed & Built by Deepankar
                   </p>
                 </div>
               </div>
 
-              {/* ── Column 2: Navigation ── */}
-              <div className="md:col-span-2 space-y-4">
-                <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase block">
-                  Navigation
-                </span>
-                <ul className="space-y-2.5 text-sm font-light text-white/55">
-                  <li>
-                    <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors duration-200">
-                      Home
+              {/* ── Column 2: Navigation & Socials (Span 3) ── */}
+              <div className="md:col-span-3 flex flex-col gap-10">
+                {/* Navigation */}
+                <div className="space-y-4">
+                  <span className="text-white/30 text-[10px] tracking-[0.2em] uppercase block font-medium">
+                    Navigation
+                  </span>
+                  <ul className="space-y-3 text-[13px] font-light text-white/60">
+                    <li>
+                      <a href="#home" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors duration-200">
+                        Home
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors duration-200">
+                        About
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors duration-200">
+                        Projects
+                      </a>
+                    </li>
+                    <li>
+                      <Link to="/blog" className="hover:text-white transition-colors duration-200">
+                        Blog
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Socials */}
+                <div className="space-y-4">
+                  <span className="text-white/30 text-[10px] tracking-[0.2em] uppercase block font-medium">
+                    Connect
+                  </span>
+                  <div className="flex items-center gap-3">
+                    <a href="/resume (2).pdf" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/[0.03] hover:bg-white text-white/80 hover:text-black flex items-center justify-center border border-white/[0.08] hover:border-white transition-all duration-300 cursor-pointer" title="Resume">
+                      <FileText size={16} />
                     </a>
-                  </li>
-                  <li>
-                    <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors duration-200">
-                      About
+                    <a href="mailto:deepankar1562@gmail.com" className="w-10 h-10 rounded-xl bg-white/[0.03] hover:bg-white text-white/80 hover:text-black flex items-center justify-center border border-white/[0.08] hover:border-white transition-all duration-300 cursor-pointer" title="Email">
+                      <Mail size={16} />
                     </a>
-                  </li>
-                  <li>
-                    <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors duration-200">
-                      Projects
+                    <a href="https://www.linkedin.com/in/deepankar-dayal-4516291b8/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl bg-white/[0.03] hover:bg-white text-white/80 hover:text-black flex items-center justify-center border border-white/[0.08] hover:border-white transition-all duration-300 cursor-pointer" title="LinkedIn">
+                      <Linkedin size={16} />
                     </a>
-                  </li>
-                  <li>
-                    <Link to="/blog" className="hover:text-white transition-colors duration-200">
-                      Blog
-                    </Link>
-                  </li>
-                </ul>
+                    <a href="https://github.com/Dehardal" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl bg-white/[0.03] hover:bg-white text-white/80 hover:text-black flex items-center justify-center border border-white/[0.08] hover:border-white transition-all duration-300 cursor-pointer" title="GitHub">
+                      <Github size={16} />
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              {/* ── Column 3: Contact Form ── */}
-              <div className="md:col-span-4 space-y-4">
-                <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase block">
-                  Get in Touch
-                </span>
-                <form onSubmit={handleContactSubmit} className="space-y-3">
-                  <div className="grid grid-cols-2 gap-3">
+              {/* ── Column 3: Contact Form (Span 5) ── */}
+              <div className="md:col-span-5 flex flex-col space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-white/30 text-[10px] tracking-[0.2em] uppercase block font-medium">
+                    Get in Touch
+                  </span>
+                  <button 
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="text-white/30 hover:text-white text-[10px] tracking-wider uppercase transition-colors duration-300 cursor-pointer flex items-center gap-1.5"
+                  >
+                    Back to top <span className="text-sm">&uarr;</span>
+                  </button>
+                </div>
+                
+                <form onSubmit={handleContactSubmit} className="space-y-3.5 mt-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <input
                       type="text"
                       name="name"
                       value={contactData.name}
                       onChange={handleContactChange}
                       placeholder="Name"
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder:text-white/25 text-xs outline-none focus:border-white/30 transition-colors duration-300"
+                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder:text-white/20 text-[13px] outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all duration-300"
                       required
                     />
                     <input
@@ -171,7 +206,7 @@ export default function Footer() {
                       value={contactData.email}
                       onChange={handleContactChange}
                       placeholder="Email"
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder:text-white/25 text-xs outline-none focus:border-white/30 transition-colors duration-300"
+                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder:text-white/20 text-[13px] outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all duration-300"
                       required
                     />
                   </div>
@@ -180,52 +215,28 @@ export default function Footer() {
                     value={contactData.message}
                     onChange={handleContactChange}
                     placeholder="Your message..."
-                    rows={2}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder:text-white/25 text-xs outline-none focus:border-white/30 transition-colors duration-300 resize-none"
+                    rows={3}
+                    className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder:text-white/20 text-[13px] outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all duration-300 resize-none"
                     required
                   />
-                  {contactStatus && (
-                    <p className={`text-[10px] ${contactStatus.success ? 'text-emerald-400' : 'text-rose-400'}`}>
-                      {contactStatus.message}
-                    </p>
-                  )}
-                  <button
-                    type="submit"
-                    disabled={contactLoading}
-                    className="px-5 py-2 rounded-lg bg-white hover:bg-white/90 text-black font-hero-heading font-semibold text-[11px] tracking-wider uppercase transition-all duration-300 disabled:opacity-50 cursor-pointer"
-                  >
-                    {contactLoading ? 'Sending...' : 'Send'}
-                  </button>
+                  
+                  <div className="flex items-center justify-between pt-1">
+                    <div className="flex-1">
+                      {contactStatus && (
+                        <p className={`text-[11px] font-medium ${contactStatus.success ? 'text-emerald-400' : 'text-rose-400'}`}>
+                          {contactStatus.message}
+                        </p>
+                      )}
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={contactLoading}
+                      className="px-8 py-2.5 rounded-lg bg-white hover:bg-white/90 text-black font-hero-heading font-bold text-[11px] tracking-[0.1em] uppercase transition-all duration-300 disabled:opacity-50 cursor-pointer"
+                    >
+                      {contactLoading ? 'Sending...' : 'Send'}
+                    </button>
+                  </div>
                 </form>
-              </div>
-
-              {/* ── Column 4: Follow + Socials ── */}
-              <div className="md:col-span-3 space-y-4">
-                <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase block">
-                  Follow Me
-                </span>
-                <div className="flex items-center gap-2.5">
-                  <a href="/resume (2).pdf" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/[0.06] hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer" title="Resume">
-                    <FileText size={16} />
-                  </a>
-                  <a href="mailto:deepankar1562@gmail.com" className="w-10 h-10 rounded-lg bg-white/[0.06] hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer" title="Email">
-                    <Mail size={16} />
-                  </a>
-                  <a href="https://www.linkedin.com/in/deepankar-dayal-4516291b8/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-lg bg-white/[0.06] hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer" title="LinkedIn">
-                    <Linkedin size={16} />
-                  </a>
-                  <a href="https://github.com/Dehardal" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-lg bg-white/[0.06] hover:bg-white text-white hover:text-black flex items-center justify-center border border-white/10 hover:border-white transition-all duration-300 cursor-pointer" title="GitHub">
-                    <Github size={16} />
-                  </a>
-                </div>
-
-                {/* Back to Top */}
-                <button 
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className="text-white/30 hover:text-white text-[10px] tracking-wider uppercase transition-colors duration-200 cursor-pointer mt-2 flex items-center gap-1.5"
-                >
-                  Back to top <span className="text-sm">&uarr;</span>
-                </button>
               </div>
 
             </div>
