@@ -61,7 +61,7 @@ export default function GlobalHero() {
   }, []);
 
   // Typewriter parameters
-  const heroDescription = "I Build High-Performance Web Applications, Decentralized Blockchain Networks, And Intelligent Automation Systems. Now, What Are We Building?";
+  const heroDescription = "I build high-performance web applications, decentralized blockchain networks, and intelligent automation systems. Now, what are we building?";
   const { displayed, done } = useTypewriter(heroDescription, 38, 600);
 
   // Trigger button entry after 400ms
@@ -158,7 +158,7 @@ export default function GlobalHero() {
         
         {/* 1. Blurred Intro Label */}
         <div className="pointer-events-none select-none mb-5 sm:mb-6 text-[clamp(18px,4vw,26px)] leading-[1.3] font-normal text-white/40 blur-[1.5px]">
-          Hey There, Meet Deepankar Dayal,<br />
+          Hey there, meet Deepankar Dayal,<br />
           Full-Stack Developer & Systems Architect
         </div>
 
@@ -183,7 +183,7 @@ export default function GlobalHero() {
             to="/projects"
             className="inline-flex items-center justify-center bg-white/5 backdrop-blur-md text-white border border-white/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-white hover:text-black transition-all duration-300"
           >
-            Explore My Projects
+            Explore my projects
           </Link>
 
 
@@ -191,7 +191,7 @@ export default function GlobalHero() {
             to="/about"
             className="inline-flex items-center justify-center bg-white/5 backdrop-blur-md text-white border border-white/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-white hover:text-black transition-all duration-300"
           >
-            Learn About Me
+            Learn about me
           </Link>
 
           {/* Outline Email Copy Button */}
