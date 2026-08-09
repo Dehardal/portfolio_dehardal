@@ -61,7 +61,7 @@ export default function GlobalHero() {
   }, []);
 
   // Typewriter parameters
-  const heroDescription = "I build high-performance web applications, decentralized blockchain networks, and intelligent automation systems. Now, what are we building?";
+  const heroDescription = "Building high-performance web applications, decentralized blockchain networks, and intelligent automation systems. Now, what are we building?";
   const { displayed, done } = useTypewriter(heroDescription, 38, 600);
 
   // Trigger button entry after 400ms
