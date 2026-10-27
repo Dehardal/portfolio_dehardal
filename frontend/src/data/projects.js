@@ -25,6 +25,11 @@ export const PROJECTS = [
     iframeUrl: 'https://career-atlas-nextstep.onrender.com/',
     color: '#3b82f6',
     helixLabels: ['CLIENT', 'GRAPHS', 'ENGINE', 'CLOUD'],
+    gallery: [
+      'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80'
+    ]
   },
   {
     id: 'sales-crm',
@@ -49,6 +54,11 @@ export const PROJECTS = [
     iframeUrl: 'https://sales-crm-fkw9.onrender.com/',
     color: '#ec4899',
     helixLabels: ['CLIENT', 'DATABASE', 'SERVER', 'HOST'],
+    gallery: [
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80'
+    ]
   },
   {
     id: 'pequire',
@@ -73,6 +83,11 @@ export const PROJECTS = [
     iframeUrl: 'https://pequire.com',
     color: '#14b8a6',
     helixLabels: ['PORTAL', 'DATABASE', 'API', 'CLUSTER'],
+    gallery: [
+      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80'
+    ]
   },
   {
     id: 'qrspooler',
@@ -97,6 +112,11 @@ export const PROJECTS = [
     iframeUrl: 'https://cafe-system-frontend.onrender.com/',
     color: '#10b981',
     helixLabels: ['SESSION', 'PRINTER', 'UPI API', 'BILLING'],
+    gallery: [
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80'
+    ]
   },
   {
     id: 'vakilcrm',
@@ -121,6 +141,69 @@ export const PROJECTS = [
     iframeUrl: 'https://vakil-system.onrender.com/login',
     color: '#f59e0b',
     helixLabels: ['AUTH', 'DATABASE', 'CRON', 'STORAGE'],
+    gallery: [
+      'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1505664159858-80a6d0e7d592?auto=format&fit=crop&q=80'
+    ]
+  },
+  {
+    id: 'quickserve',
+    label: '06 // RESTAURANT SAAS',
+    title: 'Quickserve',
+    tagline: 'QR-based digital menu & live order dispatch platform',
+    desc: 'A full-stack restaurant QR SaaS platform empowering diners to scan table QR codes, browse rich visual menus, and place instant digital orders, while giving restaurant owners real-time kitchen order dispatch and catalog management.',
+    problem: 'Traditional restaurant paper menus incur repetitive printing costs for daily price updates, slow down ordering during rush hours, and introduce manual order error bottlenecks between waitstaff and the kitchen.',
+    solution: 'Engineered an end-to-end touchless QR dining engine. Patrons access real-time table menus with zero app downloads, while restaurant operators manage categories, dishes with Cloudinary media hosting, and receive instantaneous incoming order feeds over WebSockets.',
+    highlights: [
+      { icon: 'qr_code_scanner', text: 'Dynamic Table QR Resolution: Instant customer access to digital restaurant menus without installing native apps.' },
+      { icon: 'table_restaurant', text: 'Real-Time Kitchen Dispatch: Live order synchronization powered by Socket.io for immediate food prep alerts.' },
+      { icon: 'restaurant_menu', text: 'Dish & Category Studio: Comprehensive owner dashboard with Cloudinary image hosting and availability toggles.' },
+      { icon: 'bolt', text: 'Live Cloud Host: Deployed on Render with secured JWT sessions, responsive UI, and persistent MongoDB storage.' },
+    ],
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Tailwind CSS', 'Cloudinary', 'Vite'],
+    architecture: ['Dynamic QR Session Mapping', 'Socket.io Event Dispatch', 'Cloudinary Media Vault', 'Render Cloud Deployment'],
+    status: 'Live',
+    domain: 'Restaurant Tech',
+    github: 'https://github.com/Dehardal/Quickserve---Restaurant-QR-menu',
+    live: 'https://quickserve-restaurant-qr-menu.onrender.com',
+    iframeUrl: 'https://quickserve-restaurant-qr-menu.onrender.com',
+    color: '#f97316',
+    helixLabels: ['QR CODE', 'MENU', 'SOCKETS', 'KITCHEN'],
+    gallery: [
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80'
+    ]
+  },
+  {
+    id: 'nexusreach-crm',
+    label: '07 // OUTREACH ENGINE',
+    title: 'NexusReach CRM',
+    tagline: 'Multichannel outreach engine & distributed mailbox CRM',
+    desc: 'An open-source, scalable multichannel CRM and automated cold outreach engine featuring multi-mailbox round-robin rotation, Hostinger Agentic Mail API integration, WhatsApp Web messaging, and AI lead scoring.',
+    problem: 'Commercial CRM and outreach platforms charge hundreds of dollars per seat, strictly limit mailbox connections and contact volumes, lack native WhatsApp integration, and lock enterprise data into proprietary silos.',
+    solution: 'Architected a self-hosted outreach engine with unlimited mailbox pools, intelligent round-robin deliverability controls, drag-and-drop Kanban pipelines, automated WhatsApp communication, and local/cloud LLM lead classification.',
+    highlights: [
+      { icon: 'mark_email_unread', text: 'Distributed Mailbox Pool: Unlimited mailbox rotation across Hostinger Agentic Mail, Google Workspace, and custom SMTP.' },
+      { icon: 'view_kanban', text: 'Interactive Kanban Pipeline: Drag-and-drop lead lifecycle management with customizable stages and full audit logs.' },
+      { icon: 'chat', text: 'Multichannel Outreach & WhatsApp: Integrated WhatsApp Web engine alongside unified two-way email reply synchronization.' },
+      { icon: 'psychology', text: 'AI Lead Intelligence: Engagement heat scoring (Hot/Warm/Cold) and smart response drafting powered by local/cloud LLMs.' },
+    ],
+    tech: ['React 19', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Tailwind CSS', 'Vite 7'],
+    architecture: ['Round-Robin SMTP Balancer', 'Agentic Mail API Adapter', 'WhatsApp Web Engine', 'Render Cloud Host'],
+    status: 'Live',
+    domain: 'SaaS & Automation',
+    github: 'https://github.com/Dehardal/NexusReach-CRM',
+    live: 'https://nexusreach-crm.onrender.com',
+    iframeUrl: 'https://nexusreach-crm.onrender.com',
+    color: '#6366f1',
+    helixLabels: ['ROTATION', 'PIPELINE', 'AGENTIC', 'OUTREACH'],
+    gallery: [
+      'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80'
+    ]
   },
 ];
 
